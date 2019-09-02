@@ -65,9 +65,13 @@ class TestUser(unittest.TestCase):
         the test_user_exists method aid in finding the instances of the user. If an identified instance won't be found, a boolean will be returned instead.
         '''
 
-        user_exists = User.user_exist("mwamtoleo@gmail.com")
+        self.new_user.save_user()
+        test_user = User("Linkedin","resume","mwamtoleo@gmail.com")
+        test_user.save_user()
 
-        self.assertFalse(user_exists) 
+        user_exists = User.user_exist("mwamtoleo@gmail.com")
+        
+        self.assertTrue(user_exists) 
 
 
 if __name__ == '__main__':
