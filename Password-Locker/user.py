@@ -3,9 +3,9 @@ class User:
     This is a class in which we shall create new instances for the user
     '''
     user_details = []
-    def __init__(self,account_type,user_id,email):
+    def __init__(self,app_name,user_id,email):
 
-        self.account_type = account_type
+        self.app_name = app_name
         self.user_id = user_id
         self.email = email
     
@@ -35,3 +35,11 @@ class User:
                     return True
 
         return False 
+
+    def delete_user(self):
+
+        '''
+        delete_user will remove the identified user from the user_details
+        '''
+
+        User.user_details.remove(self)

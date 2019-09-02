@@ -18,7 +18,7 @@ class TestUser(unittest.TestCase):
         test_init test proper initialization of the user objects or instances
         '''
 
-        self.assertEqual(self.new_user.account_type,"Instagram")
+        self.assertEqual(self.new_user.app_name,"Instagram")
         self.assertEqual(self.new_user.user_id,"waiver")
         self.assertEqual(self.new_user.email,"mwamtoleo@gmail.com")
 
@@ -52,18 +52,22 @@ class TestUser(unittest.TestCase):
         '''
         test_delete_user for identifying whether we are in a position to remove or clear a specific user in the available user-details
         '''
-        User.user_details.remove(self)
+        self.new_user.save_user()
+        test_user = User("Instagram","waiver","mwamtoleo@gmail.com")
+        test_user.save_user()
+
+        self.new_user.delete_user()
+        self.assertEqual(len(User.user_details),1)
+        # User.user_details.remove(self)
     
     def test_user_exists(self):
         '''
         the test_user_exists method aid in finding the instances of the user. If an identified instance won't be found, a boolean will be returned instead.
         '''
 
-        # self.new_user.save_user()
-        # test_user = User("Instagram", "waiver", "mwamtole@gmail.com")
-        # test_user.save_user()
-        user_exists = User.user_exist("waiver")
-        self.assertTrue(user_exists) 
+        user_exists = User.user_exist("mwamtoleo@gmail.com")
+
+        self.assertFalse(user_exists) 
 
 
 if __name__ == '__main__':
