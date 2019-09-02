@@ -47,7 +47,7 @@ class User:
     def user_exists(cls,email):
         '''
         checking the existance of the mail instance
-        
+        ee
         Args:
             mail:search existance
         Returns:
@@ -57,3 +57,8 @@ class User:
             if user.email.mail == email:
                         return True
         return False
+
+    # @classmethod
+    # def copy_email(cls,number):
+    #     user_found = User.find_by_number(number)
+    #     pyperclip.copy(user_found.email)
