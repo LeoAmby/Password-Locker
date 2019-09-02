@@ -4,6 +4,7 @@ from credentials import Credentials
 class TestCredentials(unittest.TestCase):
     '''
     This is a test class which defines various cases for the credential class behaviours.
+    
     Args:
         unittest.TestCase: TestCase class helps in creating test cases
     '''
@@ -28,7 +29,6 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.new_credentials.save_credentials()
-
         self.assertEqual(len(Credentials.credentials_details),1)
     
     def tearDown(self):
