@@ -7,9 +7,7 @@ class Credentials:
         self.account_type = account_type
         self.login = login
         self.password = password
-
-    credentials_details = []
-
+        
     def save_credentials(self):
 
         '''

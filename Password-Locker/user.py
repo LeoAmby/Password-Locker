@@ -17,3 +17,5 @@ class User:
         '''
 
         User.user_details.append(self)
+
+    def user_exist(self):

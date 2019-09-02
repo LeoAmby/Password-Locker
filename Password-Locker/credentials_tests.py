@@ -12,7 +12,7 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_credentials = Credentials("Instagram","waivery","!£$%67nghe")
+        self.new_credentials = Credentials("Instagram","photogenic","!£$%67nghe")
 
     def test_init(self):
         '''
@@ -20,7 +20,7 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.assertEqual(self.new_credentials.account_type,"Instagram")
-        self.assertEqual(self.new_credentials.login,"waivery")
+        self.assertEqual(self.new_credentials.login,"photogenic")
         self.assertEqual(self.new_credentials.password,"!£$%67nghe")
 
     def test_save_credentials(self):
@@ -48,4 +48,4 @@ class TestCredentials(unittest.TestCase):
 
 
 if __name__ == '__main__':
-        unittest.main()
+    unittest.main()

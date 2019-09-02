@@ -53,7 +53,18 @@ class TestUser(unittest.TestCase):
         test_delete_user for identifying whether we are in a position to remove or clear a specific user in the available user-details
         '''
         User.user_details.remove(self)
+    
+    def test_user_exists(self):
+        '''
+        the test_user_exists method aid in finding the instances of the user. If an identified instance won't be found, a boolean will be returned instead.
+        '''
+
+        # self.new_user.save_user()
+        # test_user = User("Instagram", "waiver", "mwamtole@gmail.com")
+        # test_user.save_user()
+        user_exists = User.user_exist("waiver")
+        self.assertTrue(user_exists) 
 
 
 if __name__ == '__main__':
-        unittest.main()
+    unittest.main()
