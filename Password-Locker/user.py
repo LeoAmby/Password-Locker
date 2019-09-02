@@ -10,6 +10,7 @@ class User:
         self.email = email
     
     user_details = []
+    
     def save_user(self):
 
         '''
@@ -18,4 +19,19 @@ class User:
 
         User.user_details.append(self)
 
-    def user_exist(self):
+    
+    @classmethod
+    def user_exist(cls,email):
+        '''
+        validating the existance of an instance of the user_details
+        
+        Args:
+            email: search the existance of the entered email
+        Returns:
+            Boolean: True or false depending on the existance of the user_detail of email
+        '''
+        for user in cls.user_details:
+            if user.email == email:
+                    return True
+
+        return False 
