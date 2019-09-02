@@ -43,3 +43,17 @@ class User:
         '''
 
         User.user_details.remove(self)
+
+    def user_exists(cls,email):
+        '''
+        checking the existance of the mail instance
+        
+        Args:
+            mail:search existance
+        Returns:
+            Boolean:
+        '''
+        for user in cls.user_details:
+            if user.email.mail == email:
+                        return True
+        return False
