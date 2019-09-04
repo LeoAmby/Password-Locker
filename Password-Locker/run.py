@@ -2,14 +2,16 @@
 import sys
 from user import User
 from credentials import Credentials
+import getpass
 
 
-class Main:
+
+class Final:
     def create_user(appname,userid,email):
         '''
         we are creating a new user_detail with this function
         '''
-        new_user = User(appname,userid,email)
+        new_user = User(app_name,user_id,email)
         return new_user
     
     def create_credentials(appname,login,password):
@@ -19,17 +21,17 @@ class Main:
         new_credentials = Credentials(appname,login,password)
         return new_credentials
 
-    def save_users(user):
+    def save_user(user):
         '''
         A method to save user
         '''
-        user.save_user()
+        User.save_user()
 
     def save_credentials(credentials):
         '''
         saving of the provided credentials
         '''
-        credentials.save_credentials()
+        Credentials.save_credentials()
 
     def del_user(user):
         '''
@@ -59,10 +61,10 @@ class Main:
         print("."*15)
 
         print("What is your unique User_ID...")
-        loguser_id = input()
+        userID = input()
 
         print("Provide your password...")
-        logpassword - input()
+        password = getpass.getpass()
 
         print("Your email address...")
         email = input()
@@ -74,14 +76,13 @@ class Main:
         user_id = input()
 
         print("Password..")
-        password = input()
+        password = getpass.getpass()
 
-        if loguser_id == user_id and logpassword == password:
+        if userID == user_id and password == password:
             print("Welcome... You are now logged in!!")
             print('\n')
         
         else:print("You have either entered a wrong user-id or password!! Try Again")
-            sys.exit()
 
         while True:
             print("These are abbrevations to the input required from you, kindly use them appropriately: cu - create new_user, du - display user, fu - find user, and ex - exit user details ")
@@ -105,9 +106,9 @@ class Main:
                     login = input()
 
                     print ("password")
-                    password = input()
+                    password = getpass.getpass()
 
-                    save_user(create_user(appname,userid,email)) #create and save the user inputs and details
+                    save_user(create_user(app_name,user_id,email)) #create and save the user inputs and details
 
                     print('\n')
                     print(f"New User {app_name} {user_id} {email}")

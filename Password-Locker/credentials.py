@@ -1,3 +1,7 @@
+import random
+import string
+import getpass
+
 class Credentials:
     '''
     This is a class that helps generate new instances of the user credentials

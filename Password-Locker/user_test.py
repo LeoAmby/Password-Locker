@@ -2,6 +2,7 @@ import unittest
 import pyperclip 
 from user import User
 
+
 class TestUser(unittest.TestCase):
     '''
     This is a test class which defines various cases for the user class behaviours.

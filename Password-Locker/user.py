@@ -1,4 +1,6 @@
-
+import random
+import string
+import getpass
 
 class User:
     '''
