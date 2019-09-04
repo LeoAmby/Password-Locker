@@ -95,6 +95,7 @@ def main():
         username = input('Your Username? ')
         # password = input('Your Password? ')
         password = getpass.getpass()
+        save_user(create_user(first_name, last_name, username))
 
         # print("new user")
         # print("."*15)
