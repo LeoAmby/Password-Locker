@@ -10,12 +10,25 @@ class Main:
         '''
         new_user = User(appname,userid,email)
         return new_user
+    
+    def create_credentials(appname,login,password):
+        '''
+        A function for creating the user credentials
+        '''
+        new_credentials = Credentials(appname,login,password)
+        return new_credentials
 
     def save_users(user):
         '''
         A method to save user
         '''
         user.save_user()
+
+    def save_credentials(credentials):
+        '''
+        saving of the provided credentials
+        '''
+        credentials.save_credentials()
 
     def del_user(user):
         '''
@@ -28,6 +41,11 @@ class Main:
         a function that helps in finding the existance of a user through the email and returns a boolean
         '''
         return User.user_exist(email)
+    def generate_password():
+        '''
+        function that aids in password generation
+        '''
+        return Credentials.generate_password()
 
     def main():
         print("Greetings, Welcome to the lock-it where we secure all you Passwords for your various appllication. Kindly Provide your name..")
