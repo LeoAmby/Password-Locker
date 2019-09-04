@@ -1,4 +1,5 @@
 import unittest 
+import pyperclip
 from credentials import Credentials
 
 class TestCredentials(unittest.TestCase):
@@ -20,7 +21,6 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.assertEqual(self.new_credentials.app_name,"Instagram")
-        # self.assertEqual(self.new_credentials.login,"photogenic")
         self.assertEqual(self.new_credentials.password,"!£$%67nghe")
 
     def test_save_credentials(self):
