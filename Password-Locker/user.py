@@ -7,11 +7,11 @@ class User:
     This is a class in which we shall create new instances for the user
     '''
     
-    def __init__(self,app_name,user_id,email):
+    def __init__(self,user_name,email,password):
 
-        self.app_name = app_name
-        self.user_id = user_id
+        self.user_name = user_name
         self.email = email
+        self.password = password
     
     user_details = []
     
@@ -24,22 +24,6 @@ class User:
         User.user_details.append(self)
 
     
-    @classmethod
-    # def user_exist(cls,email):
-    #     '''
-    #     validating the existance of an instance of the user_details
-        
-    #     Args:
-    #         email: search the existance of the entered email
-    #     Returns:
-    #         Boolean: True or false depending on the existance of the user_detail of email
-    #     '''
-    #     for user in cls.user_details:
-    #         if user.email == email:
-    #                 return True
-
-    #     return False 
-
     def delete_user(self):
 
         '''
@@ -61,5 +45,3 @@ class User:
             if user.email.mail == email:
                         return True
         return False
-
-    # cd

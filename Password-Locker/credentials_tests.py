@@ -9,12 +9,15 @@ class TestCredentials(unittest.TestCase):
     Args:
         unittest.TestCase: TestCase class helps in creating test cases
     '''
+    
+    
     def setUp(self):
         '''
         Set up method to run before each test cases.
         '''
         self.new_credentials = Credentials("Instagram","!£$%67nghe")
 
+    
     def test_init(self):
         '''
         test_init test proper initialization of the credential objects or instances
@@ -23,6 +26,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credentials.app_name,"Instagram")
         self.assertEqual(self.new_credentials.password,"!£$%67nghe")
 
+    
     def test_save_credentials(self):
         '''
         test_save_credentials test for clarity that the instances of the credentials are saved and can be found within the object
@@ -31,6 +35,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
 
         self.assertEqual(len(Credentials.credentials_details),1)
+    
     
     def tearDown(self):
         '''
