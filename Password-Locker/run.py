@@ -96,6 +96,8 @@ def main():
         # password = input('Your Password? ')
         password = getpass.getpass()
         save_user(create_user(first_name, last_name, username))
+        print(f'Dear {first_name} {last_name} your Lock-It account has been created')
+        print('\n')
 
         # print("new user")
         # print("."*15)
