@@ -1,7 +1,8 @@
 #!/usr/bin/env python3.6
-
+import sys
 from user import User
 from credentials import Credentials
+
 
 class Main:
     def create_user(appname,userid,email):
@@ -41,6 +42,7 @@ class Main:
         a function that helps in finding the existance of a user through the email and returns a boolean
         '''
         return User.user_exist(email)
+
     def generate_password():
         '''
         function that aids in password generation
@@ -48,9 +50,38 @@ class Main:
         return Credentials.generate_password()
 
     def main():
-        print("Greetings, Welcome to the lock-it where we secure all you Passwords for your various appllication. Kindly Provide your name..")
+        print("Greetings, Welcome to the lock-it command line application where we secure all your Passwords for your various appllications. Kindly Provide your name..")
         name = input()
         print(f"Hello {name}, Thank you. Kindly proceed.")
+        print('\n')
+
+        print("new user")
+        print("."*15)
+
+        print("What is your unique User_ID...")
+        loguser_id = input()
+
+        print("Provide your password...")
+        logpassword - input()
+
+        print("Your email address...")
+        email = input()
+
+        print("Access your account by logging in now...")
+        print('\n')
+
+        print("Provide your user-ID")
+        user_id = input()
+
+        print("Password..")
+        password = input()
+
+        if loguser_id == user_id and logpassword == password:
+            print("Welcome... You are now logged in!!")
+            print('\n')
+        
+        else:print("You have either entered a wrong user-id or password!! Try Again")
+            sys.exit()
 
         while True:
             print("These are abbrevations to the input required from you, kindly use them appropriately: cu - create new_user, du - display user, fu - find user, and ex - exit user details ")
@@ -59,6 +90,7 @@ class Main:
 
             if code_abbreviation == 'cu':
                     print("New User")
+                    print("."*15)
 
                     print ("app_name")
                     app_name = input()
@@ -75,12 +107,13 @@ class Main:
                     print ("password")
                     password = input()
 
-                    save_user(create_user(app_name, user_id, email, login, password)) #create and save the user inputs and details
+                    save_user(create_user(appname,userid,email)) #create and save the user inputs and details
 
                     print('\n')
                     print(f"New User {app_name} {user_id} {email}")
 
                     print('\n')
+
             elif code_abbreviation == 'du':
 
                     if display_user():
