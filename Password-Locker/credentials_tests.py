@@ -52,5 +52,14 @@ class TestCredentials(unittest.TestCase):
 
         Credentials.credentials_details.remove(self)
 
+
+    def find_credentials(self):
+        '''
+        Finding user existance by use of the appname
+        '''
+        Credentials.find_by_appname(self)
+
+
+
 if __name__ == '__main__':
     unittest.main()

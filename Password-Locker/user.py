@@ -32,6 +32,7 @@ class User:
 
         User.user_details.remove(self)
 
+    
     def user_exists(cls,email):
         '''
         checking the existance of the mail instance

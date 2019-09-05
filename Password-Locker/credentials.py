@@ -50,3 +50,10 @@ class Credentials:
                 if credentials.userId == userId:
                         credentials_details.append(credentials)
         return credentials_details
+
+    
+    def find_credentials(appname):
+        '''
+        Finding user existance by use of the appname
+        '''
+        return Credentials.find_by_appname(appname)

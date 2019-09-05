@@ -22,14 +22,6 @@ def save_user(user):
     User.save_user(user)
 
 
-def verify_user(username,password):
-    '''
-    Checks if the user already exists before recreating another one
-    '''
-    check_user = Credentials.check_user(username,password)
-    return check_user
-
-
 def del_user(user):
     '''
     Deleting function
@@ -82,9 +74,15 @@ def display_credentials(cls,userId):
                     credentials_details.append(credentials)
     return credentials_details
 
+def find_credentials(appname):
+    '''
+    Finding user existance by use of the appname
+    '''
+    return Credentials.find_by_appname(appname)
+
 
 def main():
-        print("Greetings, Welcome to the lock-it command line application where we secure all your Passwords for your various appllications. Kindly Provide your name..")
+        print("Greetings, Welcome to the lock-it command line application where we secure all your Passwords for your various appllications. Kindly Provide your name.")
         name = input()
         print(f"Hello {name}, Thank you. Kindly proceed.")
         print('\n')
@@ -99,106 +97,71 @@ def main():
         print(f'Dear {first_name} {last_name} your Lock-It account has been created')
         print('\n')
 
-        # print("new user")
-        # print("."*15)
+        print('Please Login to add create, change or update credetials of your accounts')
+        print('\n')
+        username = input('Enter your Lock-It username ')
+        password = getpass.getpass()
+       
+        print('\n')
+        print(f'Welcome {username}!!')
+        print('\n')
 
-        # print("What is your unique User_ID...")
-        # userID = input()
+        while True:
+                print('Choose an abbreviated code to continue:  cc - create credentials')
+                abb_code = input('Your code choice:')
+                print('cc - Create Credentials; fc - Find Credentials; dc - Delete Credentials ')
+                print("."*15)
 
-        # print("Provide your password...")
-        # password = getpass.getpass()
+                if abb_code == 'cc':
+                    print('Provide your credentials: ')
+                    print('\n')
+                    appname = input('What\'s the name of the Application? ')
+                    userId = input('Provide your desired User-ID - ')
 
-        # print("Your email address...")
-        # email = input()
+                    while True:
+                            print('\n')
+                            print('')
+                            password = getpass.getpass()
 
-        # print("Access your account by logging in now...")
-        # print('\n')
+                            save_credentials(create_credentials(appname,userId,password))
+                            print('\n')
+                            print(f'Credentials for {appname} is created and saved')
+                            print('\n')
 
-        # print("Provide your user-ID")
-        # user_id = input()
 
-        # print("Password..")
-        # password = getpass.getpass()
+                if abb_code == 'fc': #Find Credentials
+                    print('Enter the Application name you want to search for: ')
 
-        # if userID == user_id and password == password:
-        #     print("Welcome... You are now logged in!!")
-        #     print('\n')
+                    app_name = input()
+                    if check_existing_users(appname):
+                            credentials = find_credentials(appname)
+                            print(f'The list of Credentials for {appname} are: ')
+                            print('\n')
+
+                    else:
+                            print('\n')
+                            print('Sorry we couldn\'t find the credentials for your Application')
+
+                elif abb_code == 'dc': #for deleting Credentials
+                    print('\n')
+                    print('Which Appliction credentials do you want to delete? ')
+                    print('\n')
+
+                    appname = input('Enter the Appname- ')
+
+                    if find_credentials(appname):
+                            credentials = find_credentials(appname)
+                            credentials.delete_credentials()
+                            
+
+                    else:
+                            print('\n')
+                            print('We couldn\'t credentials for the entered Application')
         
-        # else:print("You have either entered a wrong user-id or password!! Try Again")
-
-        # while True:
-        #     print("These are abbrevations to the input required from you, kindly use them appropriately: cu - create new_user, du - display user, fu - find user, and ex - exit user details ")
-        #     code_abbreviation = input().lower()
-
-
-        #     if code_abbreviation == 'cu':
-        #             print("New User")
-        #             print("."*15)
-
-        #             print ("app_name")
-        #             app_name = input()
-
-        #             print ("user_id")
-        #             user_id = input()
-
-        #             print("email")
-        #             email = input()
-
-        #             print ("login")
-        #             login = input()
-
-        #             print ("password")
-        #             password = getpass.getpass()
-
-        #             # save_user(create_user(app_name,user_id,email)) #create and save the user inputs and details
-
-        #             print('\n')
-        #             print(f"New User {app_name} {user_id} {email}")
-
-        #             print('\n')
-
-        #     elif code_abbreviation == 'du':
-
-        #             if display_user():
-
-        #                 print("These are your details for the application mentioned")
-
-        #                 print('\n')
-        #                 for user in display_user():
-        #                     print(f"{user.app_name} {user.user_id} {user.email} {user.login}")
-
-        #                     print('\n')
-        #             else:
-
-        #                 print('\n')
-        #                 print("Kindly create some user details for various application to  be able do view under display")
-
-        #                 print ('\n')
-
-        #     elif code_abbreviation == 'fu':
-
-        #             print("Which email would you like to search for?")
-
-        #             search_email = input()
-        #             if check_existing_user(search_email):
-                                
-        #                     search_user = find_user(search_email)
-
-        #                     print(f"{search_user.user_id} {search_user.login}")
-
-        #                     print(f"app_name...{search_user.app_name}")
-
-        #                     print(f"Email address...{search_user.email}")
-
-        #             else:
-        #                     print("We cant find a user that matches your details")
-
-        #     elif code_abbreviation == "ex":
-        #             print("Adios Amigos, Thank you for your time!")
-
-        #     else:
-        #             print("Kindly make use of the code abbreviations provided. Thank you")
-
+        
+                    # else abb_code == 'ex':
+                    # break
+            
 
 if __name__ == '__main__':
         main()
