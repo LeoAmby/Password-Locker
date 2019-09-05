@@ -17,12 +17,12 @@ class Credentials:
 
     credentials_details = []
         
-    def save_credentials(self):
+    def save_credentials(cred):
 
         '''
         save_credentials meant to save the user's provided instances of the credentials_details
         '''
-        Credentials.credentials_details.append(self)
+        Credentials.credentials_details.append(cred)
 
     
     def delete_credentials(self):

@@ -45,4 +45,6 @@ class User:
         for user in cls.user_details:
             if user.email.mail == email:
                         return True
+        
+        
         return False

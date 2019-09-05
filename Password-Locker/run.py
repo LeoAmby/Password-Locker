@@ -4,6 +4,7 @@ from user import User
 from credentials import Credentials
 import getpass
 
+mycreds = []
 
 
 
@@ -44,11 +45,11 @@ def create_credentials(appname,userId,password):
     return new_credentials
 
 
-def save_credentials(credentials):
+def save_credentials():
     '''
     saving of the provided credentials
     '''
-    Credentials.save_credentials()
+    Credentials.save_credentials(mycreds)
 
 
 def delete_credentials(self):
@@ -117,16 +118,18 @@ def main():
                     print('\n')
                     appname = input('What\'s the name of the Application? ')
                     userId = input('Provide your desired User-ID - ')
+                    mycreds.append(appname)
+                    mycreds.append(userId)
 
-                    while True:
-                            print('\n')
-                            print('')
-                            password = getpass.getpass()
+                if True:
+                        print('\n')
+                        print('')
+                        password = getpass.getpass()
+                        
 
-                            save_credentials(create_credentials(appname,userId,password))
-                            print('\n')
-                            print(f'Credentials for {appname} is created and saved')
-                            print('\n')
+                        #   save_credentials(create_credentials(appname,userId,password))
+                        print('\n')
+                        print(f'Credentials for {appname} is created and saved')
 
 
                 if abb_code == 'fc': #Find Credentials
